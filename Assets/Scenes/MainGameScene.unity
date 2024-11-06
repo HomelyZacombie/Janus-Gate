@@ -1738,6 +1738,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBody: {fileID: 906901160}
   mouseSensitivity: 1.6
+  SpeedUp: 0
+  comboCounter: 0
+  comboLength: 3
+  damage: 0
 --- !u!4 &906901163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3,
