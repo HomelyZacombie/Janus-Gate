@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 PlayerMove;
     [SerializeField] float SpeedUp = 4f;
 
+
     
 
 
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     float lastcomboEnd;
     public int comboLength;
     [SerializeField] float damage;
-    
+    [SerializeField] GameObject swordAtt;
 
 
     void Start()
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         PlayerAni.SetBool("StartAttack", true);
                         PlayerAni.SetBool("Attack" + (i + 1), true);
+                        swordAtt.GetComponent<BoxCollider>().enabled = true;
                         lastClicked = Time.time;
                         SpeedUp = 0f;
                     }
@@ -131,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAni.SetBool("Attack" + (i + 1), false);
                 PlayerAni.SetBool("StartAttack", false);
                 SpeedUp = 4f;
+                swordAtt.GetComponent<BoxCollider>().enabled = false;
 
                 if (WalkOn == true && (Input.GetKeyDown(KeyCode.LeftShift)))
                 {

@@ -731,6 +731,12 @@ MonoBehaviour:
     m_Bits: 128
   attackRange: 3
   DoorInAttRange: 0
+  NPC_HP: 100
+  IsDead: 0
+  Attacking: 0
+  NPCAttHitBox1: {fileID: 1307785724}
+  NPCAttHitBox2: {fileID: 1307785723}
+  PlayerDmg: 40
 --- !u!195 &349365520
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1595,6 +1601,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1242660209070884, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttacking
+      objectReference: {fileID: 0}
     - target: {fileID: 1804324718265296, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1667,6 +1677,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 906901160}
+    - targetCorrespondingSourceObject: {fileID: 1242660209070884, guid: f933c455b886ad644b60dc415ab31bb3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1203692977}
   m_SourcePrefab: {fileID: 100100000, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
 --- !u!1 &906901159 stripped
 GameObject:
@@ -1742,6 +1756,7 @@ MonoBehaviour:
   comboCounter: 0
   comboLength: 3
   damage: 0
+  swordAtt: {fileID: 1203692976}
 --- !u!4 &906901163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3,
@@ -2055,6 +2070,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1470639158}
   m_SourcePrefab: {fileID: 100100000, guid: dd97834f6f07b5f48967e131f371b7f0, type: 3}
+--- !u!1 &1203692976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1242660209070884, guid: f933c455b886ad644b60dc415ab31bb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 906901158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1203692977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203692976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39673612, y: 0.15620379, z: 1.307969}
+  m_Center: {x: -0.15771256, y: 0.037243173, z: 0.36092362}
 --- !u!1001 &1262427297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2186,6 +2228,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Troll_PBR
       objectReference: {fileID: 0}
+    - target: {fileID: 2826394659216291298, guid: 1e337205febf0bb4384ee08cc2e75c1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2202,7 +2249,69 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 349365521}
+    - targetCorrespondingSourceObject: {fileID: 2826394659216291274, guid: 1e337205febf0bb4384ee08cc2e75c1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1307785726}
+    - targetCorrespondingSourceObject: {fileID: 2826394659216291298, guid: 1e337205febf0bb4384ee08cc2e75c1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1307785725}
   m_SourcePrefab: {fileID: 100100000, guid: 1e337205febf0bb4384ee08cc2e75c1d, type: 3}
+--- !u!1 &1307785723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826394659216291298, guid: 1e337205febf0bb4384ee08cc2e75c1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1307785722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1307785724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826394659216291274, guid: 1e337205febf0bb4384ee08cc2e75c1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1307785722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1307785725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307785723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.996415, y: 1, z: 1}
+  m_Center: {x: -0.5409267, y: -0.000000066835895, z: -0.000000050150334}
+--- !u!65 &1307785726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307785724}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9780451, y: 1, z: 1}
+  m_Center: {x: -0.51895714, y: -0.00000031714984, z: 0.00000019402428}
 --- !u!1001 &1323975014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2570,6 +2679,12 @@ MonoBehaviour:
     m_Bits: 128
   attackRange: 2
   DoorInAttRange: 0
+  NPC_HP: 0
+  IsDead: 0
+  Attacking: 0
+  NPCAttHitBox1: {fileID: 0}
+  NPCAttHitBox2: {fileID: 0}
+  PlayerDmg: 40
 --- !u!195 &1366992327
 NavMeshAgent:
   m_ObjectHideFlags: 0
