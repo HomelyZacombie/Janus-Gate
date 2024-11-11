@@ -9,27 +9,25 @@ public class PlayerMovement : MonoBehaviour
     //Player movment and camara control
     [SerializeField] private Rigidbody PlayerBody;
     private Vector3 turn;
-    public float mouseSensitivity = 1.6f;
+    [SerializeField] float mouseSensitivity = 1.6f;
     private Vector3 PlayerMove;
     [SerializeField] float SpeedUp = 4f;
-
-
-    
-
 
     //Aimation controls
     private Animator PlayerAni;
     private bool WalkOn;
 
     //combat combo
-    public int comboCounter;
-    float cooldownTime = 0.1f;
-    float lastClicked;
-    float lastcomboEnd;
-    public int comboLength;
+    [SerializeField]  int comboCounter;
+    [SerializeField] float cooldownTime = 0.1f;
+    [SerializeField] float lastClicked;
+    [SerializeField] float lastcomboEnd;
+    [SerializeField] int comboLength;
     [SerializeField] float damage;
     [SerializeField] GameObject swordAtt;
-
+    
+    public UIMenus Pauseing;
+    //private bool Paused = false;
 
     void Start()
     {
@@ -63,6 +61,17 @@ public class PlayerMovement : MonoBehaviour
         if (WalkOn == false || Input.GetKeyUp(KeyCode.LeftShift)) { PlayerAni.SetBool("IsRunning", false); SpeedUp = 4f; }
 
 
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Pauseing.Pause();
+            //Paused = true;
+            /*if (Input.GetKeyUp(KeyCode.Escape) && (Paused == true))
+            {
+                Pauseing.Continue();
+                Paused = false;
+            }*/
+        }
+       
         /*[SerializeField] void Attacking(){
             SpeedUp = 0;
         }*/
