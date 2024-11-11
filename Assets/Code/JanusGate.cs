@@ -15,10 +15,11 @@ public class JanusGate : MonoBehaviour
     public Image HP_Bar;
     public GameObject fillEnding;
     RectTransform ballFillTopTransform;
-
+    
     //[SerializeField] float BarFill;
     Vector3 ballFillTopPosition = new Vector3();
     [SerializeField] float ballFillX;
+    //[SerializeField] float Flow = 172f;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class JanusGate : MonoBehaviour
         //Gate_MaxHP = HP_Bar.fillAmount * 1000f;
         HP_Bar.fillAmount = Gate_HP / 1000f;
        
-
+        //Flow = fillEnding;
 
 
         ballFillTopTransform = fillEnding.GetComponent<Image>().rectTransform;
@@ -47,7 +48,7 @@ public class JanusGate : MonoBehaviour
             ballFillX = 0f;
         }
 
-        ballFillTopPosition.Set(ballFillX, 172f * Gate_HP, 0);
+        ballFillTopPosition.Set(ballFillX, 0.172f * Gate_HP, 0);
         ballFillTopTransform.localPosition = ballFillTopPosition;
     }
     
