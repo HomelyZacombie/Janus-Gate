@@ -48,10 +48,15 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerAni.SetBool("IsWalking", true);
             WalkOn = true;
-            //SpeedUp = 4f;
         }
         if (Input.GetKeyUp(KeyCode.W)) { PlayerAni.SetBool("IsWalking", false); WalkOn = false; }
-        //if (Input.GetKeyUp(KeyCode.W)) {PlayerAni.SetBool("IsWalking", false); WalkOn = false; }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlayerAni.SetBool("IsWalkingBack", true);
+
+        }
+        if (Input.GetKeyUp(KeyCode.S)) { PlayerAni.SetBool("IsWalkingBack", false); }
+        
 
         if (WalkOn == true && (Input.GetKeyDown(KeyCode.LeftShift)))
         {
@@ -64,34 +69,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Pauseing.Pause();
-            //Paused = true;
-            /*if (Input.GetKeyUp(KeyCode.Escape) && (Paused == true))
-            {
-                Pauseing.Continue();
-                Paused = false;
-            }*/
+         
         }
        
-        /*[SerializeField] void Attacking(){
-            SpeedUp = 0;
-        }*/
-
-        /*if (Input.GetKey(KeyCode.Mouse0))
-        {
-            PlayerAni.SetBool("Attack", true);
-            
-            StartCoroutine(Attack(0.6f));
-            WalkSpeed = 0f;
-            
-        }
-
-        IEnumerator Attack(float waitTime)
-        {
-            yield return new WaitForSeconds(waitTime);
-
-            PlayerAni.SetBool("Attack", false);
-
-        }*/
         //Attacking animation control
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - lastcomboEnd > cooldownTime)
         {
@@ -162,15 +142,17 @@ public class PlayerMovement : MonoBehaviour
        
 
         //Player movement
-        PlayerMove = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-
+        PlayerMove = new Vector3(0f, 0f, Input.GetAxis("Vertical"));
+        //Input.GetAxis("Horizontal")
         MovePlayer();
 
     }
 
     private void MovePlayer()
     {
+        
         Vector3 MoveVector = transform.TransformDirection(PlayerMove) * SpeedUp;
+        //Player movement allowed in world from inputs
         PlayerBody.velocity = new Vector3(MoveVector.x, PlayerBody.velocity.y, MoveVector.z);
 
     }

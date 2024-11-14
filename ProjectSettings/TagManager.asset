@@ -8,6 +8,8 @@ TagManager:
   - TrollAttack
   - GoblinAttack
   - TheJanusGate
+  - Troll
+  - Goblin
   layers:
   - Default
   - TransparentFX

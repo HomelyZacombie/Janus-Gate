@@ -16,32 +16,28 @@ public class JanusGate : MonoBehaviour
     public GameObject fillEnding;
     RectTransform ballFillTopTransform;
     
-    //[SerializeField] float BarFill;
+   
     Vector3 ballFillTopPosition = new Vector3();
     [SerializeField] float ballFillX;
-    //[SerializeField] float Flow = 172f;
+
+    private GameObject UIHolderOb;
+    private UIMenus GameEnd;
 
     void Start()
     {
-        //BarFill = HP_Bar.fillAmount;
-        //Gate_MaxHP = HP_Bar.fillAmount * 1000f;
+
+        UIHolderOb = GameObject.Find("Canvas");
+        GameEnd = UIHolderOb.GetComponent<UIMenus>();
+
         HP_Bar.fillAmount = Gate_HP / 1000f;
-       
-        //Flow = fillEnding;
-
-
         ballFillTopTransform = fillEnding.GetComponent<Image>().rectTransform;
     }
 
     void LateUpdate()
     {
-        //BarFill = HP_Bar.fillAmount;
-        //Gate_MaxHP = HP_Bar.fillAmount * 1000f;
+       
         HP_Bar.fillAmount = Gate_HP / 1000f;
         
-
-
-
         ballFillX += 1f;
         if (ballFillX >= 100f)
         {
@@ -50,6 +46,11 @@ public class JanusGate : MonoBehaviour
 
         ballFillTopPosition.Set(ballFillX, 0.172f * Gate_HP, 0);
         ballFillTopTransform.localPosition = ballFillTopPosition;
+
+        if (Gate_HP >= 1000f)
+        {
+            Gate_HP = 1000f;
+        }
     }
     
     private void OnTriggerEnter(Collider other)
@@ -76,12 +77,13 @@ public class JanusGate : MonoBehaviour
 
         if (Gate_HP <= 0)
         {
-           
-           
-            
-           
-            
-           
+            Debug.Log("Ends been called");
+            GameEnd.End();
         }
+    }
+
+    public void IntHP()
+    {
+        Gate_HP += 100f;
     }
 }

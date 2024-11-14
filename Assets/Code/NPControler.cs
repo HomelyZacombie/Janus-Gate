@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class NPControler : MonoBehaviour
     private Animator animator;
 
     private GameObject JanusGate;
+    
 
     
     //[SerializeField] static float speedWalk = 2f;
@@ -37,9 +39,16 @@ public class NPControler : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] Camera PlayerCam;
     [SerializeField] Canvas NPC_UI;
+    private bool NPC_UIAllow = true;
+    private GameObject Player;
     //[SerializeField] Transform PosAjust;
     //[SerializeField] Vector3 offset;
 
+    //--------------- SoulPoint Control
+    [SerializeField] GameObject NPCModalName;
+    private GameObject SoulPoints;
+    private SoulCount Counter;
+    WaveSpawner Spawner;
 
 
 
@@ -51,6 +60,9 @@ public class NPControler : MonoBehaviour
         NPC_Code = GetComponent<NPControler>();
         slider.value = NPC_HP;
         NPC_UI.enabled = false;
+        PlayerCam = Camera.main;
+        SoulPoints = GameObject.Find("Points");
+        Counter = SoulPoints.GetComponent<SoulCount>();
     }
    
     // Update is called once per frame
@@ -93,24 +105,16 @@ public class NPControler : MonoBehaviour
            
         }
 
-        
+      
+
 
     }
-    private void OnTriggerExit(Collider other)
-    {
-
-        /*if (other.CompareTag("TheJanusGate"))
-        {
-            NPCAttHitBox1.GetComponent<BoxCollider>().enabled = false;
-            NPCAttHitBox2.GetComponent<BoxCollider>().enabled = false;
-            Debug.Log("Troll hand off");
-        }*/
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (IsDead == true)
         {
-            NPC_UI.enabled = false;
+          
             return;
         }
 
@@ -118,43 +122,50 @@ public class NPControler : MonoBehaviour
         {
             //reciveing damage
             TakeDamage(PlayerDmg);
-            NPC_UI.enabled = true;
-
+            if (NPC_UIAllow == true)
+            {
+                NPC_UI.enabled = true;
+                NPC_UIAllow = false;
+            }
         }
-        /*if (other.CompareTag("TheJanusGate"))
-        {
-            NPCAttHitBox1.GetComponent<BoxCollider>().enabled = true;
-            NPCAttHitBox2.GetComponent<BoxCollider>().enabled = true;
-            Debug.Log("Troll hand off2");
-        }*/
     }
     
-    /*private void OnTriggerExit(Collider other)
+    public void SetSpawner(WaveSpawner _spawner)
     {
-        if (other.CompareTag("NPCAttHitBox1"))
-        {
-            NPCAttHitBox1.GetComponent<BoxCollider>().enabled = false;
-        }
-        if (other.CompareTag("NPCAttHitBox2"))
-        {
-            NPCAttHitBox2.GetComponent<BoxCollider>().enabled = false;
-        }
-    }*/
+        Spawner = _spawner;
+    }
 
 
     private void TakeDamage(float amount)
     {
         NPC_HP -= amount;
 
+        if (NPC_HP >= 1)
+        {
+
+        }
         if (NPC_HP <= 0)
         {
             StopAllCoroutines();
             IsDead = true;
             NPCAttHitBox1.GetComponent<BoxCollider>().enabled = false;
             animator.SetBool("IsDead", true);
+            agent.GetComponent<NavMeshAgent>().enabled = false; 
+            NPC_UI.enabled = false;
             NPC_Code.enabled = false;
-            agent.GetComponent<NavMeshAgent>().enabled = false;
-            
+
+            if(Spawner != null) Spawner.currentCreature.Remove(this.gameObject);
+
+            if (NPCModalName.CompareTag("Troll"))
+            {
+                Counter.TrollSoulIncrease();
+               
+            }
+            if (NPCModalName.CompareTag("Goblin"))
+            {
+                Counter.GoblinSoulIncrease();
+               
+            }
         }
     }
 
@@ -163,13 +174,4 @@ public class NPControler : MonoBehaviour
         agent.SetDestination(JanusGate.transform.position);
         
     }
-
-    /*private void Attack()
-    {
-        animator.SetBool("IsWalking",false);
-        animator.SetTrigger("IsAttacking");
-        agent.SetDestination(transform.position);
-        
-    }*/
-
 }
