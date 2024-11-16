@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,7 +12,7 @@ public class NPControler : MonoBehaviour
     private Animator animator;
 
     private GameObject JanusGate;
-    
+   
 
     
     //[SerializeField] static float speedWalk = 2f;
@@ -50,6 +51,8 @@ public class NPControler : MonoBehaviour
     private SoulCount Counter;
     WaveSpawner Spawner;
 
+   // private NPControler ObTarget;
+
 
 
     void Start()
@@ -64,7 +67,11 @@ public class NPControler : MonoBehaviour
         SoulPoints = GameObject.Find("Points");
         Counter = SoulPoints.GetComponent<SoulCount>();
     }
-   
+
+    //public void SetTarget(NPControler ObTarget)
+    //{
+    //    this.ObTarget = ObTarget;
+    //}
     // Update is called once per frame
     void Update()
     {

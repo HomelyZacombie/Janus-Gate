@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 4254245740035426442}
   - component: {fileID: 7115909496333655649}
   - component: {fileID: 6720928619965864002}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 5586272536961362752}
   - component: {fileID: 874793098506604418}
   - component: {fileID: 5647998368385387056}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: decor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 4762192188913185465}
   - component: {fileID: 2498498507346680508}
   - component: {fileID: 6159666859686159091}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950004774494361358}
   - component: {fileID: 6254943130408320926}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 7036785146785760929}
   - component: {fileID: 7272132135560890414}
   - component: {fileID: 559110766807780880}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: hp_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,9 +948,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3752187472147210298}
   - component: {fileID: 2775392204422067877}
+  - component: {fileID: 1409029965382350990}
   - component: {fileID: 9212051919136909081}
   - component: {fileID: 3745786732085833707}
-  - component: {fileID: 1409029965382350990}
+  - component: {fileID: 7600766315953454112}
   m_Layer: 0
   m_Name: HMGoblin
   m_TagString: Goblin
@@ -999,6 +1000,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &1409029965382350990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756341853857659767}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.85
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.89, z: 0}
 --- !u!195 &9212051919136909081
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1048,29 +1072,34 @@ MonoBehaviour:
   PlayerCam: {fileID: 0}
   NPC_UI: {fileID: 2813412893423463008}
   NPCModalName: {fileID: 1756341853857659767}
---- !u!136 &1409029965382350990
-CapsuleCollider:
+  NPCOB: {fileID: 0}
+--- !u!54 &7600766315953454112
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756341853857659767}
-  m_Material: {fileID: 0}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.89, z: 0}
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1912364830391789503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1290,7 @@ GameObject:
   - component: {fileID: 2210235613264216664}
   - component: {fileID: 8408801290059813211}
   - component: {fileID: 4909050181326742335}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2522,7 +2551,7 @@ GameObject:
   - component: {fileID: 2756016565031311952}
   - component: {fileID: 3945105850758109056}
   - component: {fileID: 6886264864840345296}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2692,7 +2721,7 @@ GameObject:
   - component: {fileID: 4349157541056194041}
   - component: {fileID: 662173123333948128}
   - component: {fileID: 7088968723261591718}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3285,7 +3314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4047569393738049127}
   - component: {fileID: 6551795441425790378}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3332,7 +3361,7 @@ GameObject:
   - component: {fileID: 6498353609488827549}
   - component: {fileID: 9190716457054576520}
   - component: {fileID: 8845290419822258796}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: decor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3438,7 +3467,7 @@ GameObject:
   - component: {fileID: 1113577743348186010}
   - component: {fileID: 8555089222465987011}
   - component: {fileID: 56665940322089655}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: decor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3512,7 +3541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3400267158774135094}
   - component: {fileID: 4377561012704823602}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: content_padding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3560,7 +3589,7 @@ GameObject:
   - component: {fileID: 1574486247944557260}
   - component: {fileID: 2633450757757025834}
   - component: {fileID: 3279162574757586162}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3777,7 +3806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8402105709693571129}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3616264250551412230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TROLL_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,10 +811,10 @@ RectTransform:
   - {fileID: 7040065535503266089}
   m_Father: {fileID: 6029554455747476629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 34, y: -6.9999914}
+  m_SizeDelta: {x: 68, y: 13.999983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8649831895844719691
 MonoBehaviour:
@@ -1530,6 +1530,7 @@ GameObject:
   - component: {fileID: 1250897017171390207}
   - component: {fileID: 7349402067091923653}
   - component: {fileID: 3568393920524600516}
+  - component: {fileID: 3197236156380210000}
   m_Layer: 0
   m_Name: HMTroll
   m_TagString: Troll
@@ -1625,6 +1626,7 @@ MonoBehaviour:
   PlayerCam: {fileID: 0}
   NPC_UI: {fileID: 9126386358394271629}
   NPCModalName: {fileID: 5946143731674749582}
+  NPCOB: {fileID: 0}
 --- !u!136 &3568393920524600516
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1648,6 +1650,33 @@ CapsuleCollider:
   m_Height: 4.629383
   m_Direction: 1
   m_Center: {x: 0, y: 1.8146915, z: 0}
+--- !u!54 &3197236156380210000
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946143731674749582}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5963236237195973675
 GameObject:
   m_ObjectHideFlags: 0
