@@ -10,6 +10,8 @@ TagManager:
   - TheJanusGate
   - Troll
   - Goblin
+  - FireBall
+  - Turrain
   layers:
   - Default
   - TransparentFX

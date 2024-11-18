@@ -1510,6 +1510,7 @@ MonoBehaviour:
   damage: 0
   swordAtt: {fileID: 491186468566707784}
   Pauseing: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!136 &7742850306116328291
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1541,7 +1542,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064799330430952777}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2570,6 +2571,7 @@ GameObject:
   - component: {fileID: 5530338659667602422}
   - component: {fileID: 6046000708694923713}
   - component: {fileID: 4045999763863592176}
+  - component: {fileID: 2898116739609868038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2729,6 +2731,27 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!65 &2898116739609868038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616450722441877739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4, y: 0.4, z: 3.52}
+  m_Center: {x: 0, y: 0, z: 6.01}
 --- !u!1 &3631375018580580895
 GameObject:
   m_ObjectHideFlags: 0

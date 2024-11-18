@@ -34,6 +34,7 @@ public class NPControler : MonoBehaviour
     [SerializeField] GameObject NPCAttHitBox1;
     [SerializeField] GameObject NPCAttHitBox2;
     private int PlayerDmg = 40;
+    private int TowerDmg = 20;
 
 
     //--------------- HP bar handerlers
@@ -135,6 +136,16 @@ public class NPControler : MonoBehaviour
                 NPC_UIAllow = false;
             }
         }
+        if (other.CompareTag("FireBall"))
+        {
+            //reciveing damage
+            TakeDamage(TowerDmg);
+            if (NPC_UIAllow == true)
+            {
+                NPC_UI.enabled = true;
+                NPC_UIAllow = false;
+            }
+        }
     }
     
     public void SetSpawner(WaveSpawner _spawner)
@@ -156,12 +167,15 @@ public class NPControler : MonoBehaviour
             StopAllCoroutines();
             IsDead = true;
             NPCAttHitBox1.GetComponent<BoxCollider>().enabled = false;
+            NPCAttHitBox2.GetComponent<BoxCollider>().enabled = false;
             animator.SetBool("IsDead", true);
             agent.GetComponent<NavMeshAgent>().enabled = false; 
             NPC_UI.enabled = false;
             NPC_Code.enabled = false;
+            NPCModalName.GetComponent<CapsuleCollider>().enabled = false;
+            Destroy(this.gameObject, 5);
 
-            if(Spawner != null) Spawner.currentCreature.Remove(this.gameObject);
+            if (Spawner != null) Spawner.currentCreature.Remove(this.gameObject);
 
             if (NPCModalName.CompareTag("Troll"))
             {

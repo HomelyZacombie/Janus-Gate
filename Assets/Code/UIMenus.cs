@@ -17,14 +17,16 @@ public class UIMenus : MonoBehaviour
     [SerializeField] GameObject WonGame;
     private bool EndTrue = false;
     private bool WonTrue = false;
+    public AudioContainer Audio; 
 
     void Start()
     {
-        //for menu audio
+        
         //PauseMenu = GameObject.Find("PauseMenu");
         //EndGame = GameObject.Find("EndGame");
         EndGame.SetActive(false);
         WonGame.SetActive(false);
+        //Audio.PlayMainMenuAmbiant();
     }
     public void Pause()
     {
@@ -81,11 +83,17 @@ public class UIMenus : MonoBehaviour
     public void LoadMainMenuScene(string MainMenu)
     {
         SceneManager.LoadScene("MainMenu");
+        Audio.PlayMainMenuAmbiant();
+        Audio.PauseGameAmbiant();
+       
     }
     public void LoadMainGameScene(string MainGameScene)
     {
         //string name calls 'name' of the scene you want
         SceneManager.LoadScene("MainGameScene");
+        Audio.PauseMainMenuAmbiant();
+        Audio.PlayGameAmbiant();
+        Debug.Log("Main Game load");
     }
    
     public void LoadLeaveGame(string ExitGame)

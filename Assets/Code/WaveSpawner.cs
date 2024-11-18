@@ -40,13 +40,11 @@ public class WaveSpawner : MonoBehaviour
     {
         if (currentCreature.Count == 0)
         {
-            Debug.Log("next wave");
             currentWave++;
             SpawnWave();
         }
         if (currentWave == 3)
         {
-            Debug.Log("We have won");
             WonGame.Won();
         }
     }

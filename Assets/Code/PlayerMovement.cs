@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject swordAtt;
     
     public UIMenus Pauseing;
+    public AudioContainer Audio;
     //private bool Paused = false;
 
     void Start()
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         //PlayerAttBox.SetActive(false);
         WalkOn = false;
+       // Audio.PlayGameAmbiant();
     }
 
     //Player Animations

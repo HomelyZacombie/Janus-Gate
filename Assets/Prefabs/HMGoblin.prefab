@@ -1072,7 +1072,6 @@ MonoBehaviour:
   PlayerCam: {fileID: 0}
   NPC_UI: {fileID: 2813412893423463008}
   NPCModalName: {fileID: 1756341853857659767}
-  NPCOB: {fileID: 0}
 --- !u!54 &7600766315953454112
 Rigidbody:
   m_ObjectHideFlags: 0
